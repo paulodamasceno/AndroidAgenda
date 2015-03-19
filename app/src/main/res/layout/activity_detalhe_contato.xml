@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.paulo.agenda.DetalheContatoActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <ScrollView
+
+        android:layout_below="@+id/toolbar"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/dfoto_contato"
+                android:layout_width="150dp"
+                android:layout_height="150dp" />
+
+            <TextView
+
+                android:layout_toRightOf="@+id/dfoto_contato"
+                android:id="@+id/dnome_contato"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nome do Contato"/>
+
+            <TextView
+                android:layout_toRightOf="@+id/dfoto_contato"
+                android:layout_below="@+id/dnome_contato"
+                android:layout_marginTop="15dp"
+                android:id="@+id/dfone_contato"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fone do Contato"/>
+
+            <TextView
+                android:layout_below="@+id/dfoto_contato"
+                android:layout_marginTop="15dp"
+                android:id="@+id/dcelular_contato"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Celular do Contato"/>
+
+            <TextView
+                android:layout_below="@+id/dcelular_contato"
+                android:layout_marginTop="15dp"
+                android:id="@+id/demail_contato"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Email do Contato"/>
+
+            <TextView
+                android:layout_below="@+id/demail_contato"
+                android:layout_marginTop="15dp"
+                android:id="@+id/dendereco_contato"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Endereço do Contato"/>
+
+
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

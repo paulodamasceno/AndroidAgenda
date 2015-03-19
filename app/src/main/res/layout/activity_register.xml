@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.paulo.agenda.RegisterActivity">
+
+    <include xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/foto_contato"
+                android:background="#CCCCCC"
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+
+            <EditText
+                android:id="@+id/nome_contato"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Nome do Contato" />
+
+            <EditText
+                android:id="@+id/email_contato"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="email do Contato" />
+
+            <EditText
+                android:id="@+id/phone_contato"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Telefone do Contato" />
+
+            <EditText
+                android:id="@+id/cellphone_contato"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Celular do Contato" />
+
+            <EditText
+                android:id="@+id/address_contato"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Endereço do Contato" />
+
+            <Button
+                android:id="@+id/bt_salvarContato"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Salvar Contato" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
