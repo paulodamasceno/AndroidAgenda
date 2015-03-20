@@ -103,6 +103,7 @@ public class RegisterActivity extends BaseActivity implements LocationListener, 
         contato.setEmail(emailContato.getText().toString());
         contato.setPhone(phoneContato.getText().toString());
         contato.setCellphone(cellPhoneContato.getText().toString());
+        contato.setAddress(addressContato.getText().toString());
 
         User user = Helper.getUserPreference(this);
         contato.setUserId(user.getId());
@@ -155,8 +156,8 @@ public class RegisterActivity extends BaseActivity implements LocationListener, 
     protected void onStart() {
         super.onStart();
 
-        locationManager = (LocationManager)getSystemService(this.LOCATION_SERVICE);
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,1000,50,this);
+        locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,1000,100,this);
 
     }
 
@@ -180,7 +181,7 @@ public class RegisterActivity extends BaseActivity implements LocationListener, 
         ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         Ion.with(this)
-                .load("http://192.168.0.4:3000/contacts")
+                .load("http://192.168.0.15:3000/contacts")
                 .progressDialog(progressDialog)
                 .setJsonPojoBody(contato)
                 .asJsonObject()

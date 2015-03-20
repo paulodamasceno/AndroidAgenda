@@ -67,7 +67,7 @@ public class ContatosFragment extends Fragment {
 
     private void getContatos(){
         User user  = Helper.getUserPreference(getActivity());
-        String url = "http://192.168.0.4:3000/contacts/user/" + user.getId();
+        String url = "http://192.168.0.15:3000/contacts/user/" + user.getId();
         Ion.with(getActivity())
                 .load(url)
                 .as(new TypeToken<List<Contato>>(){})

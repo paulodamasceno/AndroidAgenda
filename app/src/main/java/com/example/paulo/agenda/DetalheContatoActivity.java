@@ -1,5 +1,6 @@
 package com.example.paulo.agenda;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -79,7 +80,12 @@ public class DetalheContatoActivity extends BaseActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_map) {
+
+            Intent intent = new Intent(DetalheContatoActivity.this,MapActivity.class);
+            intent.putExtra("contato",contato);
+            startActivity(intent);
+
             return true;
         }
 

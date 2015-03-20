@@ -97,7 +97,7 @@ public class UserFragment extends Fragment {
             progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 
             Ion.with(getActivity())
-                    .load("http://192.168.0.4:3000/users/authenticate")
+                    .load("http://192.168.0.15:3000/users/authenticate")
                     .progressDialog(progressDialog)
                     .setLogging("USER", Log.VERBOSE)
                     .setJsonPojoBody(user)
@@ -148,7 +148,7 @@ public class UserFragment extends Fragment {
             Toast.makeText(getActivity(), "Erro Dados Não Informados", Toast.LENGTH_SHORT).show();
         } else {
             Ion.with(getActivity())
-                    .load("http://192.168.0.4:3000/users")
+                    .load("http://192.168.0.15:3000/users")
                     .progressDialog(progressDialog)
                     .setJsonPojoBody(user)
                     .as(new TypeToken<User>() {})
