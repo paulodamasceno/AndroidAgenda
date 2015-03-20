@@ -5,15 +5,15 @@ android {
         release {
             keyAlias 'agenda'
             keyPassword 'P@ssw0rd'
-            storeFile file('E:/Projetos Mobile/AndroidAgenda/agenda.jks')
-            //storeFile file('C:/Sistemas/Mobile/agenda/AndroidAgenda/agenda.jks')
+            //storeFile file('E:/Projetos Mobile/AndroidAgenda/agenda.jks')
+            storeFile file('C:/Sistemas/Mobile/agenda/AndroidAgenda/agenda.jks')
             storePassword 'P@ssw0rd'
         }
         debug {
             keyAlias 'agenda'
             keyPassword 'P@ssw0rd'
-            storeFile file('E:/Projetos Mobile/AndroidAgenda/agenda.jks')
-            //storeFile file('C:/Sistemas/Mobile/agenda/AndroidAgenda/agenda.jks')
+            //storeFile file('E:/Projetos Mobile/AndroidAgenda/agenda.jks')
+            storeFile file('C:/Sistemas/Mobile/agenda/AndroidAgenda/agenda.jks')
             storePassword 'P@ssw0rd'
         }
     }

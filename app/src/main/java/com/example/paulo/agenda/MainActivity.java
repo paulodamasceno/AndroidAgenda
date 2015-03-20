@@ -19,7 +19,7 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity implements UserFragment.UserFragmentListner {
 
-    private NetworkReciver networkReciver;
+    //private NetworkReciver networkReciver;
 
     public MenuItem provider;
     @Override
@@ -46,21 +46,21 @@ public class MainActivity extends BaseActivity implements UserFragment.UserFragm
     protected void onStart() {
         super.onStart();
 
-        if(networkReciver == null){
-            networkReciver = new NetworkReciver();
-        }
-
-        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
-        registerReceiver(networkReciver,filter);
+//        if(networkReciver == null){
+//            networkReciver = new NetworkReciver();
+//        }
+//
+//        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+//        registerReceiver(networkReciver,filter);
 
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        if(networkReciver != null){
-            unregisterReceiver(networkReciver);
-        }
+//        if(networkReciver != null){
+//            unregisterReceiver(networkReciver);
+//        }
     }
 
     @Override
@@ -107,18 +107,18 @@ public class MainActivity extends BaseActivity implements UserFragment.UserFragm
     }
 
 
-    public class NetworkReciver extends BroadcastReceiver{
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            boolean isOnline = NetworkHelper.isOnline(context);
-            Intent intentService = new Intent(context,AgendaService.class);
-            if(isOnline){
-                intentService.setAction(AgendaService.ACTION_UPDATE);
-                context.startService(intentService);
-            }else{
-                context.stopService(intentService);
-            }
-        }
-    }
+//    public class NetworkReciver extends BroadcastReceiver{
+//
+//        @Override
+//        public void onReceive(Context context, Intent intent) {
+////            boolean isOnline = NetworkHelper.isOnline(context);
+////            Intent intentService = new Intent(context,AgendaService.class);
+////            if(isOnline){
+////                intentService.setAction(AgendaService.ACTION_UPDATE);
+////                context.startService(intentService);
+////            }else{
+////                context.stopService(intentService);
+////            }
+//        }
+//    }
 }

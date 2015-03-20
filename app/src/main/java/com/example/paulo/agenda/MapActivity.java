@@ -1,5 +1,7 @@
 package com.example.paulo.agenda;
 
+import android.location.Address;
+import android.location.Geocoder;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,6 +16,8 @@ import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 
@@ -60,24 +64,44 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         this.googleMap = googleMap;
         configMap();
-        addContato();
+        String[] locais = {"Estação Santa Efigenia, Metro BH",
+                            "Estação Central, Metro BH",
+                            "Estação Santa Tereza, Metro BH",
+                            "Estação Horto, Metro BH",
+                            "Estação Santa Inês, Metro BH",
+                            "Estação José Candido da Silveira, Metro BH",
+                            "Estação Minas Shopping, Metro BH"
+
+                          };
+        addContato(locais);
     }
 
-    private void addContato(){
+    private void addContato(String[] locais){
 
-        LatLng latLng = new LatLng(contato.getLatitude(),contato.getLongitude());
-        MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.title(contato.getName());
-        markerOptions.snippet(contato.getAddress());
-        markerOptions.position(latLng);
+        for(String local : locais) {
+            Geocoder geocoder = new Geocoder(this);
+            List<Address> result = null;
+            try {
+                result = geocoder.getFromLocationName(local, 1);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
-        googleMap.addMarker(markerOptions);
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,13));
+            //LatLng latLng = new LatLng(contato.getLatitude(),contato.getLongitude());
+            LatLng latLng = new LatLng(result.get(0).getLatitude(), result.get(0).getLongitude());
+            MarkerOptions markerOptions = new MarkerOptions();
+            markerOptions.title(local);
+            //markerOptions.snippet(contato.getAddress());
+            markerOptions.position(latLng);
+
+            googleMap.addMarker(markerOptions);
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 13));
+        }
     }
 
     private void configMap(){
-        googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+        googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         googleMap.setMyLocationEnabled(true);
         UiSettings settings = googleMap.getUiSettings();
 

@@ -47,10 +47,10 @@
             android:name=".RegisterActivity"
             android:label="@string/title_activity_register"
             android:logo="@drawable/ico_agenda" >
-            <intent-filter>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <action android:name="com.example.paulo.agenda.action.ACTION_NEW"/>
-            </intent-filter>
+            <!--<intent-filter>-->
+                <!--<category android:name="android.intent.category.DEFAULT"/>-->
+                <!--<action android:name="com.example.paulo.agenda.action.ACTION_NEW"/>-->
+            <!--</intent-filter>-->
         </activity>
         <activity
             android:name=".DetalheContatoActivity"
@@ -65,9 +65,9 @@
             android:name=".BootReceiver"
             android:enabled="true"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.BOOT_COMPLETED" />-->
+            <!--</intent-filter>-->
         </receiver>
 
         <service
